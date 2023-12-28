@@ -43,37 +43,37 @@ static uint8 comparPass(uint8 Saved_Pass[],uint8 passArr[])
 int main(void)
 {
 
-	PORT_init();
+	PORT_init();               //keypad pins
 	ADC_init();
 	LCD_voidinit();
-	DIO_setPinDirection(DIO_PORTA,PIN1,OUTPUT);// LEDS
-	DIO_setPinDirection(DIO_PORTA,PIN2,OUTPUT);//FAN
+	DIO_setPinDirection(DIO_PORTA,PIN1,OUTPUT);  // LEDS
+	DIO_setPinDirection(DIO_PORTA,PIN2,OUTPUT);  //FAN
 
 	uint8 ADC_value=0;
 	uint32 analog=0;
 	uint8 temp;
-	uint8 Saved_Pass[4]={'1','2','3','4'};
-    uint8 passArr[4];
-    uint8 passStatus=2;
-    uint8 iterator=0;
-    uint8 trails=0;
-    uint8 option=0;
+	uint8 Saved_Pass[4]={'1','2','3','4'};    //StORED PASSWORD
+    uint8 passArr[4];                         //password user enters
+    uint8 passStatus=2;                      // 1-password true  0-password wrong
+    uint8 iterator=0;                       //index of password item
+    uint8 trails=0;                 //number of wrong trails
+    uint8 option=0;                 //options from 1=>6
 
     LCD_voidString("WELCOME TO SMART");
     LCD_setPosition(2,7);
     LCD_voidString("HOME");
-    _delay_ms(2000);
+    _delay_ms(1500);
     LCD_ClearScreen();
     LCD_voidString("Enter Password:");
     LCD_setPosition(2,1);
-    while(iterator<4)
+    while(iterator<4)             //when password user enter didn't reach 4 digit
     {
     	do
     	{
-    	 passArr[iterator]=getPressed();
+    	 passArr[iterator]=getPressed();    //read from keypad the key pressed
     	}while(passArr[iterator] ==0xff);
-    	LCD_sendData('*');
-    	iterator++;
+    	LCD_sendData('*');                  //write in lCD '*'
+    	iterator++;               //increment iterator for each digit
     }
     _delay_ms(1000);
     LCD_ClearScreen();
@@ -86,6 +86,11 @@ int main(void)
     		trails++;
     		if(trails ==3)
     		{
+    			LCD_voidString("ERROR System will");
+    			LCD_setPosition(2,6);
+    			LCD_voidString("close...");
+    			_delay_ms(1000);
+    			LCD_ClearScreen();
     			break;
     		}
     		LCD_voidString("Wrong Password");

@@ -128,12 +128,11 @@ int main(void)
     		  do
     		  {
     			  option=getPressed();
+    			  ADC_value=ADC_StartConversion(ADC0);
     		  }while(option==0xff);
     		  switch(option)
     		  {
     		  case '1':
-    			  ADC_value=ADC_StartConversion(ADC0);
-    			  _delay_ms(20);
     			  analog=(uint32)ADC_value * 5000UL /256UL;
     			  temp=analog/10;
     			  LCD_voidString("Temp=");
@@ -142,6 +141,14 @@ int main(void)
     			  LCD_voidString(" C");
     			  _delay_ms(2000);
     			  LCD_ClearScreen();
+    			  if(temp>30)
+    			  {
+    			    DIO_setPinValue(DIO_PORTA,PIN2,HIGH);
+    			  }
+    			  else if(temp<30)
+    			  {
+    				  DIO_setPinValue(DIO_PORTA,PIN2,LOW);
+    			  }
     			  break;
 
     		  case '2':
@@ -160,6 +167,8 @@ int main(void)
     			  break;
 
     		  }
+
+
     	}
 
     	}

@@ -36,6 +36,6 @@
 #define Divide_By_16             3
 #define Divide_By_32             4
 #define Divide_By_64             5
-#define Divide_By_128            6
+#define Divide_By_128            7
 #define PRESCALER         Divide_By_128
 #endif /* ADC_CFG_H_ */

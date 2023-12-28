@@ -122,20 +122,20 @@ void LCD_WriteNum                   (uint8 copy_number   )
   if(copy_number<10)
   {
 	  LCD_sendData(copy_number+'0');
-	  _delay_ms(1000);
+	  _delay_ms(1);
   }
   else if (copy_number<100)
   {
 	  LCD_sendData(copy_number/10+'0');
 	  LCD_sendData(copy_number%10+'0');
-	  _delay_ms(1000);
+	  _delay_ms(1);
   }
   else if(copy_number<1000)
   {
 	  LCD_sendData(copy_number/100+'0');
 	  LCD_sendData((copy_number%100)/10+'0');
 	  LCD_sendData(copy_number%10+'0');
-	  _delay_ms(1000);
+	  _delay_ms(1);
   }
 }
 #endif /* LCD_PROGRAM_C_ */

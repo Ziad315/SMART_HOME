@@ -151,7 +151,7 @@ LOAD d:/eclipse/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x372e
+.text           0x00000000     0x35f8
  *(.vectors)
  .vectors       0x00000000       0x54 d:/eclipse/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -328,25 +328,25 @@ LOAD d:/eclipse/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x000025d0                PORT_init
  .text.comparPass
                 0x00002612       0x82 ./main.o
- .text.main     0x00002694      0xf8e ./main.o
+ .text.main     0x00002694      0xe58 ./main.o
                 0x00002694                main
- .text.libgcc   0x00003622       0x3e d:/eclipse/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
-                0x00003622                __mulsi3
- .text.libgcc   0x00003660       0x18 d:/eclipse/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
-                0x00003660                __udivmodqi4
- .text.libgcc   0x00003678       0x44 d:/eclipse/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
-                0x00003678                __udivmodsi4
- .text.libgcc   0x000036bc        0x0 d:/eclipse/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x000036bc        0x0 d:/eclipse/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x000036bc       0x38 d:/eclipse/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x000036bc                __prologue_saves__
- .text.libgcc   0x000036f4       0x36 d:/eclipse/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x000036f4                __epilogue_restores__
-                0x0000372a                . = ALIGN (0x2)
+ .text.libgcc   0x000034ec       0x3e d:/eclipse/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+                0x000034ec                __mulsi3
+ .text.libgcc   0x0000352a       0x18 d:/eclipse/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
+                0x0000352a                __udivmodqi4
+ .text.libgcc   0x00003542       0x44 d:/eclipse/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x00003542                __udivmodsi4
+ .text.libgcc   0x00003586        0x0 d:/eclipse/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00003586        0x0 d:/eclipse/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00003586       0x38 d:/eclipse/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x00003586                __prologue_saves__
+ .text.libgcc   0x000035be       0x36 d:/eclipse/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x000035be                __epilogue_restores__
+                0x000035f4                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000372a        0x0 d:/eclipse/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x0000372a                exit
-                0x0000372a                _exit
+ .fini9         0x000035f4        0x0 d:/eclipse/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x000035f4                exit
+                0x000035f4                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -365,11 +365,11 @@ LOAD d:/eclipse/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000372a        0x4 d:/eclipse/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x000035f4        0x4 d:/eclipse/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000372e                _etext = .
+                0x000035f8                _etext = .
 
-.data           0x00800060       0xbe load address 0x0000372e
+.data           0x00800060       0xbe load address 0x000035f8
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 d:/eclipse/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -442,8 +442,8 @@ LOAD d:/eclipse/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.bss*)
  *(COMMON)
                 0x0080011e                PROVIDE (__bss_end, .)
-                0x0000372e                __data_load_start = LOADADDR (.data)
-                0x000037ec                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000035f8                __data_load_start = LOADADDR (.data)
+                0x000036b6                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x0080011e        0x0
                 0x0080011e                PROVIDE (__noinit_start, .)
@@ -468,7 +468,7 @@ LOAD d:/eclipse/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x2b38
+.stab           0x00000000     0x2ab4
  *(.stab)
  .stab          0x00000000      0x288 ./ADC_program.o
  .stab          0x00000288      0x8c4 ./DIO_program.o
@@ -479,8 +479,8 @@ LOAD d:/eclipse/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                                 0xf84 (size before relaxing)
  .stab          0x00001cec      0x168 ./PORT_program.o
                                 0x1d4 (size before relaxing)
- .stab          0x00001e54      0xce4 ./main.o
-                                0xedc (size before relaxing)
+ .stab          0x00001e54      0xc60 ./main.o
+                                0xe58 (size before relaxing)
 
 .stabstr        0x00000000      0xbfb
  *(.stabstr)
